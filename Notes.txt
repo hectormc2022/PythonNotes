@@ -1,0 +1,46 @@
+Solución de problemas para la activación de anaconda navigator.
+
+    conda update conda
+    conda update anaconda-navigator
+    anaconda-navigator --reset
+    anaconda-navigator
+
+Data types 
+    int     numbers
+    float   numbers with a decimal point
+    str     Ordered sequence of characters "hello" 'Sammy' "2000"
+    list    Ordered sequence of object  [10,"hello",200.3]
+    dict    Unordered Key: Value pairs: {"mykey":"value", "name":"Frankie"}
+    tup     Ordered immutable sequence of objects: (10,"hello",200.3)
+    set     Unordered collection of unique objects: {"a","b"}
+    bool    Logical value indicating True or False
+
+
+Pyghon uses Dynamic Typing 
+    my_dogs = 2
+
+    my_dogs = ["Sammy" , "Frankie"]
+
+These actions use [] square brackets and a number index to indicate positions of what you wish to gram.
+
+Character       : h  e  l  l  o
+Index           : 0  1  2  3  4
+Reverse index   : 0 -4 -3 -2 -1 
+
+Slicing allow you to grab a subsection of multiple characters, a "slice" of the string.
+This has following syntax:
+    [start:stop:step]
+
+    mystring[abcdefghijk]
+    mystring[2:]    - 'cdefghijk'
+    mystring[:3]    - 'abc'
+    mystring[3:6]   - 'def'
+    mystring[::2]   - 'acegik'
+    mystring[2:7:2] - 'ceg'
+    mystring[::-1]  - 'kjihgfedcba'
+
+Other way to perform this grap string.
+
+    'Hello World'[2]
+    'This is a test'[1:6]
+
