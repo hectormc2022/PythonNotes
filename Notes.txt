@@ -44,3 +44,142 @@ Other way to perform this grap string.
     'Hello World'[2]
     'This is a test'[1:6]
 
+There are multiple way to format string for printing variables in them. This is known as string interpolation.
+
+print('Ths is a string {}'.format('INSERTED')
+	- This is a string INSERTED
+
+print('The {} {} {}'.format('fox','brown','quick'))
+	- The fox brwon quick
+
+print('The {2} {1} {0}'.format('fox','brown','quick'))
+	- The quick brown fox
+
+print('The {0} {0} {0}').format('fox','brown','quick'))
+	- The fox fox fox
+
+print('The {q} {b} {f}'.format(f='fox',b='brown',q='quick'))
+
+Float formatting follows "{value:width.precision f}"
+
+	- result = 100/777
+	- 0.1287001287001287
+	- print("The result was {r:1.2f}".format(r=result))
+	- The result was 0.13
+
+We can simplify the expresion format like this
+
+name = "Jose"
+print(f"Hello, this name is {name}")
+	- Hello, this name is Jose
+
+.append allows to add new element at end of list.
+
+
+----------------------------------------------------------------------------------------------
+
+Dictionaries: Objects retrieved by key name.
+	Unordered and can not be sorted.
+
+List: Object retrieved by location.
+	Ordered Sequence can be indexed or sliced.
+
+
+# Make a dictionary with {} and : to signify a key and a value
+my_dict = {'key1':'value1','key2':'value2'}
+
+
+my_dict = {'key1':123,'key2':[12,23,33],'key3':['item0','item1','item2']}
+
+# Call values by their key
+my_dict['key2']
+
+Its important to note that dictionaries are very flexible in the data types they can hold. For example:
+
+my_dict = {'key1':123,'key2':[12,23,33],'key3':['item0','item1','item2']}
+
+# Can then even call methods on that value
+my_dict['key3'][0].upper()
+
+# Set the object equal to itself minus 123 
+my_dict['key1'] -= 123
+my_dict['key1']
+
+---------------------------------------------------------------------------------------
+
+Tuples
+In Python tuples are very similar to lists, however, unlike lists they are immutable meaning they can not be changed. You would use tuples to present things that shouldn't be changed, such as days of the week, or dates on a calendar.
+
+
+#Create a tuple
+t = (1,2,3)
+
+# Can also mix object types
+t = ('one',2)
+
+Immutability
+It can't be stressed enough that tuples are immutable.
+
+
+-----------------------------------------------------------------------------------------
+
+Set and Booleans
+There are two other object types in Python that we should quickly cover: Sets and Booleans.
+
+Sets
+Sets are an unordered collection of unique elements. We can construct them by using the set() function. Let's go ahead and make a set to see how it works.
+
+x = set()
+
+
+# We add to sets with the add() method
+x.add(1)
+
+# Add a different element
+x.add(2)
+
+
+# Create a list with repeats
+list1 = [1,1,2,2,3,4,5,6,1,1]
+
+
+# Cast as set to get unique values
+set(list1)
+{1, 2, 3, 4, 5, 6}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
