@@ -148,38 +148,136 @@ set(list1)
 {1, 2, 3, 4, 5, 6}
 
 
+## --------------------- IF -----------------------
+Indentation
+It is important to keep a good understanding of how indentation works in Python to maintain the structure and order of your code. We will touch on this topic again when we start building out functions!
+
+If statement
+
+    if some_condition:
+        # execute some code
+    elif some_other_condition: 
+        # do something different
+    else:
+        # do something else       
+## -----------------------
+
+x = False
+if x:
+    print('x was True!')
+else:
+    print('I will be printed in any case where x is not true')
+
+## ----- Multiple Branches
+
+loc = 'Bank'
+
+if loc == 'Auto Shop':
+    print('Welcome to the Auto Shop!')
+elif loc == 'Bank':
+    print('Welcome to the bank!')
+else:
+    print('Where are you?')
+
+###
+
+person = 'Sammy'
+
+if person == 'Sammy':
+    print('Welcome Sammy!')
+else:
+    print("Welcome, what's your name?")
 
 
+## ------ For
+
+my_iterable = [1,2,3]
+for item_name in my_iterable:
+    print(item_name)
 
 
+for num in list1:
+    print(num)
 
 
+for num in list1:
+    if num % 2 == 0:
+        print(num)
 
 
+for letter in 'This':
+    print(letter)
+
+T
+h
+i
+s
+
+## ------------- for with tuples
+
+list2 = [(2,4),(6,8),(10,12)]
+
+for tup in list2:
+    print(tup)
+
+(2, 4)
+(6, 8)
+(10, 12)
+
+# Now with unpacking!
+for (t1,t2) in list2:
+    print(t1)
+
+2
+6
+10
+
+for (t1,t2) in list2:
+    print(t1)
+    ptint(t2)
+
+2
+4
+6
+8
+
+## ------------- for with dictionaries
+
+d = {'k1':1,'k2':2,'k3':3}
+
+for item in d:
+    print(item)
+
+k1
+k2
+k3
+
+dict_items([('k1', 1), ('k2', 2), ('k3', 3)])
+
+for k,v in d.items():
+    print(k) 
+    print(v)
+
+k1
+1
+k2
+2
+k3
+3
+
+list(d.keys())
+    ['k1', 'k2', 'k3']
+list(d.values())
+    [1, 2, 3]
 
 
+## ------ While loops
 
 
+x = 0
+while x < 10:
+    print('x is currently: ',x)
+    print(' x is still less than 10, adding 1 to x')
+    x+=1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##---------------------------
