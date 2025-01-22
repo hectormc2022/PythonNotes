@@ -44,7 +44,11 @@ Other way to perform this grap string.
     'Hello World'[2]
     'This is a test'[1:6]
 
+------------------------ [ String ] ::
+
 There are multiple way to format string for printing variables in them. This is known as string interpolation.
+
+***It's important to note that strings have an important property known as immutability. This means that once a string is created, the elements within it can not be changed or replaced.
 
 print('Ths is a string {}'.format('INSERTED')
 	- This is a string INSERTED
@@ -73,9 +77,99 @@ name = "Jose"
 print(f"Hello, this name is {name}")
 	- Hello, this name is Jose
 
-.append allows to add new element at end of list.
+
+s = "Hello World"
+s = s + ' concatenate me!'
+    Hello World concatenate me!
+
+We can use the multiplication symbol to create repetition!
+
+letter = 'z'
+letter*10
+    'zzzzzzzzzz'
 
 
+Basic Built-in String methods
+Objects in Python usually have built-in methods. These methods are functions inside the object (we will learn about these in much more depth later) that can perform actions or commands on the object itself.
+
+We call methods with a period and then the method name. Methods are in the form:
+    object.method(parameters)
+Where parameters are extra arguments we can pass into the method.
+
+s = 'Hello World concatenate me!'
+
+# Upper Case a string
+    s.upper()
+
+# Lower case
+    s.lower()
+
+# Split a string by blank space (this is the default)
+    s.split()
+    ['Hello', 'World', 'concatenate', 'me!']
+
+# Split by a specific element (doesn't include the element that was split on)
+    s.split('W')
+    ['Hello ', 'orld concatenate me!']
+
+
+Padding and Precision of Floating Point Numbers
+Floating point numbers use the format %5.2f. Here, 5 would be the minimum number of characters the string should contain; these may be padded with whitespace if the entire number does not have this many digits. Next to this, .2f stands for how many numbers to show past the decimal point.
+
+print('Floating point numbers: %5.2f' %(13.144))
+    Floating point numbers: 13.14
+
+print('Floating point numbers: %1.5f' %(13.144))
+    Floating point numbers: 13.14400
+
+print('Floating point numbers: %25.2f' %(13.144))
+    Floating point numbers: 13.14
+
+
+Formatting with the .format() method
+A better way to format objects into your strings for print statements is with the string .format() method. The syntax is:
+
+print('The {2} {1} {0}'.format('fox','brown','quick'))
+    The quick brown fox
+
+print('First Object: {a}, Second Object: {b}, Third Object: {c}'.format(a=1,b='Two',c=12.3))
+    First Object: 1, Second Object: Two, Third Object: 12.3
+
+
+Alignment, padding and precision with .format()
+Within the curly braces you can assign field lengths, left/right alignments, rounding parameters and more
+
+print('{0:8} | {1:9}'.format('Fruit', 'Quantity'))
+print('{0:8} | {1:9}'.format('Apples', 3.))
+print('{0:8} | {1:9}'.format('Oranges', 10))
+
+    Fruit    | Quantity 
+    Apples   |       3.0
+    Oranges  |        10
+
+print('{0:<8} | {1:^8} | {2:>8}'.format('Left','Center','Right'))
+print('{0:<8} | {1:^8} | {2:>8}'.format(11,22,33))
+
+    Left     |  Center  |    Right
+    11       |    22    |       33
+
+
+print('{0:=<8} | {1:-^8} | {2:.>8}'.format('Left','Center','Right'))
+print('{0:=<8} | {1:-^8} | {2:.>8}'.format(11,22,33))
+
+    Left==== | -Center- | ...Right
+    11====== | ---22--- | ......33
+
+
+
+Float formatting follows "result: {value:{width}.{precision}}"
+
+num = 23.45678
+print("My 10 character, four decimal number is:{0:10.4f}".format(num))
+print(f"My 10 character, four decimal number is:{num:{10}.{6}}")
+
+    My 10 character, four decimal number is:   23.4568
+    My 10 character, four decimal number is:   23.4568
 ----------------------------------------------------------------------------------------------
 
 Dictionaries: Objects retrieved by key name.
