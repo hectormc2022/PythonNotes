@@ -63,7 +63,7 @@ def mostrar_tabla(resultado):
 
 # === Programa principal ===
 while True:
-    print("\n=== Cálculo de Ganancia Bitso/Binance ===")
+    print("\n=== Cálculo de Ganancia Bitso ===")
     print("1. XRP")
     print("2. ETH")
     print("3. LTC")
