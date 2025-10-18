@@ -4,8 +4,17 @@ from rich.table import Table
 console = Console()
 
 def calcular_ganancia(precio_compra, precio_venta, monto_invertido, moneda="MXN", maker=False):
-    maker_fee = 0.005
-    taker_fee = 0.0065
+    # Comisiones según moneda y tipo de orden
+    if moneda == "MXN":
+        maker_fee = 0.005
+        taker_fee = 0.0065
+    elif moneda == "USD":
+        maker_fee = 0.0025
+        taker_fee = 0.003
+    else:
+        maker_fee = 0.005
+        taker_fee = 0.0065
+
     fee = maker_fee if maker else taker_fee
 
     cantidad = monto_invertido / precio_compra
@@ -31,8 +40,16 @@ def calcular_ganancia(precio_compra, precio_venta, monto_invertido, moneda="MXN"
     }
 
 def calcular_precio_salida(precio_compra, monto_invertido, ganancia_deseada, moneda="MXN", maker=False):
-    maker_fee = 0.005
-    taker_fee = 0.0065
+    if moneda == "MXN":
+        maker_fee = 0.005
+        taker_fee = 0.0065
+    elif moneda == "USD":
+        maker_fee = 0.0025
+        taker_fee = 0.003
+    else:
+        maker_fee = 0.005
+        taker_fee = 0.0065
+
     fee = maker_fee if maker else taker_fee
 
     cantidad = monto_invertido / precio_compra
@@ -94,7 +111,9 @@ while True:
                 precio_compra = float(input(f"Precio de compra ({cripto}): "))
                 precio_venta = float(input(f"Precio de venta ({cripto}): "))
                 monto = float(input(f"Monto total invertido en {moneda}: "))
-                tipo_orden = input("¿La orden será Maker (M) o Taker (T)? ").strip().upper()
+                tipo_orden = input("¿La orden será Maker (M) o Taker (T)? M ").strip().upper()
+                if tipo_orden == "":
+                    tipo_orden = "M"
                 maker = tipo_orden == "M"
                 resultado = calcular_ganancia(precio_compra, precio_venta, monto, moneda, maker)
                 mostrar_tabla(resultado)
@@ -106,7 +125,9 @@ while True:
             moneda = "USD" if moneda_input == "USD" else "MXN"
             precio_compra = float(input(f"Valor de compra ({cripto}): "))
             monto = float(input(f"Cantidad a invertir en {moneda}: "))
-            tipo_orden = input("¿La orden será Maker (M) o Taker (T)? ").strip().upper()
+            tipo_orden = input("¿La orden será Maker (M) o Taker (T)? M ").strip().upper()
+            if tipo_orden == "":
+                tipo_orden = "M"
             maker = tipo_orden == "M"
             precio_venta = calcular_precio_salida(precio_compra, monto, ganancia_deseada=0, moneda=moneda, maker=maker)
             tabla = Table(title="Predicción sobre ganancia", show_lines=True)
@@ -122,7 +143,9 @@ while True:
             precio_compra = float(input(f"Precio de compra ({cripto}): "))
             precio_venta = float(input(f"Precio de venta ({cripto}): "))
             monto = float(input(f"Monto total invertido en {moneda}: "))
-            tipo_orden = input("¿La orden será Maker (M) o Taker (T)? ").strip().upper()
+            tipo_orden = input("¿La orden será Maker (M) o Taker (T)? M ").strip().upper()
+            if tipo_orden == "":
+                tipo_orden = "M"
             maker = tipo_orden == "M"
             resultado = calcular_ganancia(precio_compra, precio_venta, monto, moneda, maker)
             mostrar_tabla(resultado)
