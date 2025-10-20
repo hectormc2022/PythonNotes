@@ -3,14 +3,14 @@ from rich.table import Table
 
 console = Console()
 
-def calcular_ganancia(precio_compra, precio_venta, monto_invertido, moneda="MXN", maker=False):
-    # Comisiones según moneda y tipo de orden
+def calcular_ganancia(precio_compra, precio_venta, monto_invertido, moneda="MXN", maker=True):
+    # Comisiones según tipo de orden y par de divisas (Bitso actual)
     if moneda == "MXN":
-        maker_fee = 0.005
-        taker_fee = 0.0065
+        maker_fee = 0.005   # 0.5%
+        taker_fee = 0.0065  # 0.65%
     elif moneda == "USD":
-        maker_fee = 0.0025
-        taker_fee = 0.003
+        maker_fee = 0.0025  # 0.25%
+        taker_fee = 0.003   # 0.3%
     else:
         maker_fee = 0.005
         taker_fee = 0.0065
@@ -39,7 +39,7 @@ def calcular_ganancia(precio_compra, precio_venta, monto_invertido, moneda="MXN"
         "Ganancia total": round(ganancia_total, 2)
     }
 
-def calcular_precio_salida(precio_compra, monto_invertido, ganancia_deseada, moneda="MXN", maker=False):
+def calcular_precio_salida(precio_compra, monto_invertido, ganancia_deseada, moneda="MXN", maker=True):
     if moneda == "MXN":
         maker_fee = 0.005
         taker_fee = 0.0065
@@ -110,7 +110,10 @@ while True:
                 moneda = "USD" if cripto=="USD" else "MXN"
                 precio_compra = float(input(f"Precio de compra ({cripto}): "))
                 precio_venta = float(input(f"Precio de venta ({cripto}): "))
-                monto = float(input(f"Monto total invertido en {moneda}: "))
+                if cripto == "USD":
+                    monto = float(input("Monto total invertido de MXN en USD: "))
+                else:
+                    monto = float(input(f"Monto total invertido en {moneda}: "))
                 tipo_orden = input("¿La orden será Maker (M) o Taker (T)? M ").strip().upper()
                 if tipo_orden == "":
                     tipo_orden = "M"
@@ -124,7 +127,10 @@ while True:
             moneda_input = input("¿Operarás en USD? (Enter para MXN por defecto): ").strip().upper()
             moneda = "USD" if moneda_input == "USD" else "MXN"
             precio_compra = float(input(f"Valor de compra ({cripto}): "))
-            monto = float(input(f"Cantidad a invertir en {moneda}: "))
+            if cripto == "USD":
+                monto = float(input("Cantidad a invertir de MXN en USD: "))
+            else:
+                monto = float(input(f"Cantidad a invertir en {moneda}: "))
             tipo_orden = input("¿La orden será Maker (M) o Taker (T)? M ").strip().upper()
             if tipo_orden == "":
                 tipo_orden = "M"
@@ -142,7 +148,10 @@ while True:
             moneda = "USD" if moneda_input == "USD" else "MXN"
             precio_compra = float(input(f"Precio de compra ({cripto}): "))
             precio_venta = float(input(f"Precio de venta ({cripto}): "))
-            monto = float(input(f"Monto total invertido en {moneda}: "))
+            if cripto == "USD":
+                monto = float(input("Monto total invertido de MXN en USD: "))
+            else:
+                monto = float(input(f"Monto total invertido en {moneda}: "))
             tipo_orden = input("¿La orden será Maker (M) o Taker (T)? M ").strip().upper()
             if tipo_orden == "":
                 tipo_orden = "M"
